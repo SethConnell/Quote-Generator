@@ -2,7 +2,7 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-var quotes = [
+var quotes = [ // Each object in quotes array will be referenced throughout the code.
 	{quote: "Don't cry because it's over, smile because it happened.",
 	source: "Dr. Seuss",
 	citation: "",
@@ -27,14 +27,14 @@ var quotes = [
 	source: "Robert Frost",
 	citation: "",
 	year: ""}
-];
+]; 
 
-function getRandomQuote() {
-	var number = Math.floor((Math.random() * 5) + 0);
-	return quotes[number];
+function getRandomQuote() { // This is a function that will be used to print the quote later.
+	var number = Math.floor((Math.random() * 5) + 0); // this generates a random number.
+	return quotes[number]; // returns the random quote.
 }
 
-function printQuote() {
+function printQuote() { // printQuote is a function that prints the quote to the page.
 	var quoter = getRandomQuote();
  	console.log(quoter);
 	var quoteline = '<p class="quote">' + quoter.quote +'</p>';
@@ -43,16 +43,16 @@ function printQuote() {
 	var yearline = '';
 	var closingline = "</p>";
 
-	if (quoter.citation != ""){
+	if (quoter.citation != ""){ // if there is no sitation, the sitation is not added to page.
 		citationline = '<span class="citation"> ' + quoter.citation + ' </span>';
 	}
-	if (quoter.year != ""){
+	if (quoter.year != ""){ // if there is no year, the year is not added to page.
 		yearline = '<span class="year"> ' + quoter.year + ' </span>';
 	}
 
 	var text;
 	text = quoteline + sourceline + citationline + yearline + closingline;
-	document.getElementById('quote-box').innerHTML = text;
+	document.getElementById('quote-box').innerHTML = text; // this adds the quote to the page.
 }
 
 printQuote();
